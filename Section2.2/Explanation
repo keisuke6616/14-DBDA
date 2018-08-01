@@ -1,0 +1,61 @@
+We use computer simulations to compare the performance of the classifiers. We generate 
+${\bf x}_{ij} - {\boldsymbol \mu}_i, \ j = 1, 2, \ldots, (i = 1, 2)$ 
+independently from a pseudorandom p-variate t-distribution, 
+$t_p({\bf 0}, {\boldsymbol \Sigma}_i, \nu)$ 
+with mean zero, covariance matrix
+${\boldsymbol \Sigma}_i$
+and degrees of freedom $\nu$. 
+
+We set
+${\boldsymbol \mu}_2 = {\bf 0}, \ {\boldsymbol \Sigma}_1 = c_1{\bf B}(0.3^{|i - j|^{1/3}}){\bf B}$ 
+and
+${\boldsymbol \Sigma}_2 = c_2{\bf B}(0.3^{|i - j|^{1/3}}){\bf B}$, 
+where ${\bf B} = \mathrm{diag} \left[\{0.5 + 1 \ / \  (p + 1)\}^{1/2}, \ldots, \{0.5 + p \ /  \ (p + 1)\}^{1/2} \right]$. 
+We consider two cases for 
+${\boldsymbol \mu}_1$ 
+: (a) 
+$ {\boldsymbol \mu}_1 = (1, \ldots, 1, 0, \ldots, 0)^T$ 
+whose first 
+$\lceil p^{2/3} \rceil$ 
+elements are 1, and (b) :
+$\mu_1 = (0, \ldots, 0, 1, \ldots, 1)^T$ 
+whose last
+$\lceil p^{2/3} \rceil$ 
+elements are 1.
+
+We consider three cases : 
+$(Ⅰ) \ p=2^s,\ s=5,\ldots,10, \ (n_1,n_2)=(10, 20), \ (c_1, c_2) = (1, 1) $ and $\nu=25$  for (a) and (b) 
+
+$(Ⅱ) \ p = 2^s, \ s = 5,\ldots, 10,  \ (n_1, n_2) = (10, 20), \  (c_1, c_2) =(0.8, 1.2)$ and $\nu = 25$ for (b) 
+
+$(Ⅲ) \ p=500, \ (n_1, n_2)=(10, 20), \ (c_1, c_2)=(0.8, 1.2) $ and $\nu = 10(10)60$ for (b)
+
+
+Let 
+${\bf x}_0$ 
+be an observation vector and we estimate 
+${\boldsymbol \mu}_i$ 
+and
+${\boldsymbol \Sigma}_i$ 
+by
+$\overline{{\bf x}}_{in_i} = \sum_{j=1}^{n_i}{\bf x}_{ij} \ / \ n_i $
+and 
+${\bf S}_{in_i} = \sum_{j = 1}^{n_i} ({\bf x}_{ij} - \overline{{\bf x}}_{in_i}) ({\bf x}_{ij} - \overline{{\bf x}}_{in_i})^T \ / \ (n_i - 1)$
+for 
+$i = 1, 2$
+
+
+
+Now we compare the follow classifiers: 
+
+one classifiers an individual into $\pi_1$ if 
+
+DBDA : $\left({\bf x}_0 - \frac{\overline{{\bf x}}_{1n_1} + \overline{{\bf x}}_{2n_2}}{2} \right)^T \left( \overline{{\bf x}}_{2n_2} - \overline{{\bf x}}_{1n_1} \right) - \frac{\mathrm{tr}\left({\bf S}_{1n_1}\right)}{2n_1} + \frac{\mathrm{tr}\left({\bf S}_{2n_2}\right)}{2n_2} < 0$ 
+
+GQDA : $\frac{p||{\bf x}_0 - \overline{{\bf x}}_{1n_1}||^2}{\mathrm{tr}\left({\bf S}_{1n_1}\right)} - \frac{p||{\bf x}_0 - \overline{{\bf x}}_{2n_2}||^2}{\mathrm{tr}\left({\bf S}_{2n_2}\right)} - p\log\left\{ \frac{\mathrm{tr}\left({\bf S}_{2n_2} \right)}{\mathrm{tr}\left({\bf S}_{2n_2} \right)} \right\} - \frac{p}{n_1} + \frac{p}{n_2} < 0$ 
+
+DLDA : $\{{\bf x}_0 - (\overline{{\bf x}}_{1n_1} + \overline{{\bf x}}_{2n_2}) \ / \ 2\}^T {\bf S}_d^{-1} (\overline{{\bf x}}_{2n_2} - \overline{{\bf x}}_{1n_1}) < 0$, where ${\bf S}_d = \mathrm{diag}(s_{1n}, \ldots, s_{pn}), \ s_{in} = \sum_{i=1}^2 \sum_{l=1}^{n_i}(x_{ijl} - \overline{x}_{ijn_i})^2 \ / \ (n_1 + n_2 -2) $
+
+DQDA : $({\bf x}_0 - \overline{{\bf x}}_{1n_1})^T {\bf S}_{d(1)}^{-1} ({\bf x}_0 - \overline{{\bf x}}_{1n_1}) - ({\bf x}_0 - \overline{{\bf x}}_{2n_2})^T {\bf S}_{d(2)}^{-1} ({\bf x}_0 - \overline{{\bf x}}_{2n_2}) - \log\left\{\frac{\mathrm{det} \left({\bf S}_{d(2)} \right)}{\mathrm{det} \left({\bf S}_{d(1)} \right)} \right\} < 0$, where ${\bf S}_{d(i)} = \mathrm{diag}(s_{(i)1n_i}, \ldots, s_{(i)pn_i})$ and $s_{(i)jn_i} = \sum_{l=1}^{n_i}(x_{ijl} - \overline{x}_{ijn_i})^2 \ / \ (n_i-1)$
+
+HM-LSVM : The hard-margin linear support vector machine
