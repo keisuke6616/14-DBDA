@@ -1,4 +1,5 @@
-# 14-DBDA
+# DBDA
+
 
 Aoshima and Yata (2014) considered a scale adjusted-type distance-based classifier for high-dimensional data. High-dimensional data situation occur in many areas of modern science, such as genetic mocroarrays, medical imaging, etc. A common feature of high-dimensional data is that the data dimension is high, however, the sample size is relatively small. This is the so-called 'HDLSS'.
 
